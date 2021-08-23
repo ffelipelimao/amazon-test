@@ -3,7 +3,7 @@ import java.util.Map;
 import java.util.Stack;
 
 public class BalancedBrackets {
-    public boolean isValid(String expression){
+    public String isValid(String expression){
         Map<Character,Character> bracketPair = new HashMap<Character,Character>();
         bracketPair.put('(', ')');
         bracketPair.put('[', ']');
@@ -15,16 +15,16 @@ public class BalancedBrackets {
             }
             else if(bracketPair.containsValue(expression.charAt(i))) {
                 if (stack.isEmpty() || bracketPair.get(stack.pop()) != expression.charAt(i))
-                    return false;
+                    return "NO";
                 }
             }
 
         if(stack.isEmpty()){
-            return true;
+            return "YES";
         }
 
         else{
-            return false;
+            return "NO";
         }
 
     }

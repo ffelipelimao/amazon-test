@@ -6,21 +6,22 @@ public class BinaryTree {
 
      public int height(Node root) {
         if(root == null){
-            return 0;
+            return -1;
         }
         else{
             int left = height(root.left);
             int right = height(root.right);
             if(left > right){
-                return 1 + left;
+                return  1 + left;
             }
             else{
-                return 1 + right;
+                return  1 + right;
             }
         }
-    }
+     }
 
     public void printLevelOrder(Node root) {
+         String result = "";
         if(root == null){
             return ;
         }
@@ -28,7 +29,7 @@ public class BinaryTree {
         queue.add(root);
         while (!queue.isEmpty()){
             Node current = queue.poll();
-            System.out.println(current.data+ "");
+            result += current.data + " ";
             if (current.left != null){
                 queue.add(current.left);
             }
@@ -36,6 +37,7 @@ public class BinaryTree {
                 queue.add(current.right);
             }
         }
+        System.out.println(result);
     }
 
     public void swapNods(Node root){
