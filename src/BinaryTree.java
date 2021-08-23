@@ -1,5 +1,4 @@
 import java.util.LinkedList;
-import java.util.Queue;
 
 public class BinaryTree {
     Node root;
@@ -41,26 +40,18 @@ public class BinaryTree {
     }
 
     public void swapNods(Node root){
+
         if (root== null ||
                 (root.left==null && root.right==null) ){
             return ;
         }
+            Node temp=root.left;
+            root.left=root.right;
+            root.right=temp;
 
-        Node temp=root.left;
-        root.left=root.right;
-        root.right=temp;
+            swapNods(root.left);
+            swapNods(root.right);
 
-        swapNods(root.left);
-        swapNods(root.right);
-    }
-
-    public void inorder(Node root)
-    {
-        if (root == null)
-            return;
-        inorder(root.left);
-        System.out.print(root.data + " ");
-        inorder(root.right);
     }
 
 }
